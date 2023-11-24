@@ -1,0 +1,32 @@
+// 100 DAYS OF CODE - DAY 2
+// AW - logo drawing
+
+// 1080 * 1080 1:1 ratio
+size(1080, 1080);
+
+// size(300, 120);
+
+// black background
+background(0);
+
+// white stroke
+stroke(255);
+
+// a bit fat stroke weight
+strokeWeight(3);
+
+// A
+line(150, 100, 170, 50); // vertical
+line(170, 50, 190, 100); // vertical
+line(185, 75, 200, 75); // horisontal
+
+// W
+line(200, 50, 220, 100); // vertical
+//line(220, 100, 240, 50); // vertical
+line(230, 100, 250, 50); // vertical
+line(220, 75, 230, 100); // 
+line(216, 50, 222, 65); // 
+// line(215, 75, 260, 75); // horisontal
+
+// save image
+//save("aw_logo.png");
