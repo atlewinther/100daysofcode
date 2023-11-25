@@ -1,0 +1,24 @@
+// Ref: https://colorable.jxnblk.com/f4fcd6/080026
+
+// Processing
+color BG = #080026;
+color FG = #F1F1F1;
+color PRIMARY = #f4fcd6;
+color SECONDARY = #ff6f61;
+float[] randomCounts;
+
+void setup() {
+  size(1080, 1080);
+   background(BG);
+
+}
+
+void draw() {
+  if (mousePressed) {
+    fill(SECONDARY);
+  } else {
+    fill(PRIMARY);
+  }
+  float randomSize = random(30, 150);
+  ellipse(mouseX, mouseY, randomSize, randomSize);
+}
