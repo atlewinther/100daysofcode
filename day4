@@ -1,0 +1,51 @@
+// colors
+color BG = #00ffa2;
+color FG = #004466;
+int sizeOfCircle = 0;
+boolean firstClick = false; // if not clicked, firstClick is false
+int startTime; // variable to store the time of the first click
+
+void setup() {
+  size(1080, 1080);
+}
+
+void draw() {
+  sizeOfCircle += 5;
+  
+  if (firstClick) {
+    background(FG);
+  } else {
+    background(BG);
+  }
+  logo();
+  
+  // if clicking the mouse for the first time
+  if (mousePressed && !firstClick) {
+    firstClick = true; // firstClick is true
+  }
+  
+
+  // grow circle
+  if (firstClick) {
+    // make ellipse in the middle of canvas
+    float x = firstClick ? width / 2 : mouseX;
+    float y = firstClick ? height / 2 : mouseY;
+    
+    // water ripple effect
+    stroke(firstClick ? BG : FG);
+    noFill();
+    strokeWeight(16);
+    ellipse(x, y, sizeOfCircle, sizeOfCircle);
+    strokeWeight(8);
+    ellipse(x, y, sizeOfCircle/2, sizeOfCircle/2);
+    strokeWeight(4);
+    ellipse(x, y, sizeOfCircle/4, sizeOfCircle/4);
+    strokeWeight(3);
+    ellipse(x, y, sizeOfCircle/6, sizeOfCircle/6);
+    strokeWeight(2);
+    ellipse(x, y, sizeOfCircle/8, sizeOfCircle/8);
+    strokeWeight(1);
+    ellipse(x, y, sizeOfCircle/10, sizeOfCircle/10);
+  }
+}
+
