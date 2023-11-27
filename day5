@@ -1,0 +1,21 @@
+// 100 DAYS OF CODE - Day 5
+// inspiration: https://processing.org/examples/transparency.html
+
+PImage img;
+float offset = 0;
+float easing = 0.05;
+
+void setup() {
+  size(1024, 614);
+  img = loadImage("sarkop.jpg");
+}
+
+void draw() {
+  // random point
+  image(img, 0, 0);
+ float dx = (mouseX-img.width/2) - offset;
+ offset += dx * easing;
+  tint(255, 127);
+  image(img, offset, 0);
+  
+}
