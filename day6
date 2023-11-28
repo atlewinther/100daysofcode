@@ -1,0 +1,25 @@
+void setup() {
+  size(1080, 1080);
+}
+
+void draw() {
+  // variables
+  float wave = sin(radians(frameCount));
+  float wave_cos = cos(radians(frameCount));
+  
+  // design
+  background(0);
+  fill(255);
+  noStroke();
+  
+  // form
+  ellipse(width/2 + wave * 440, height/3, 120, 120);
+  translate(width/2, height/1.5);
+  ellipse(wave_cos * 440, 0, 120, 120);
+
+  
+  //float wave_cos = cos(radians(frameCount));
+  //ellipse(width/2 + wave_cos * 240, height/1.5, 200, 200);
+  //saveFrame("sincos_####.png");
+  
+}
