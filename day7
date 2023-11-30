@@ -1,0 +1,20 @@
+// 100DaysOfCode - day 7
+
+void setup() {
+  size(1080, 1080);
+  background(255);
+}
+
+void draw() {
+  float my_sin = sin(radians(frameCount));
+  float my_cos = cos(radians(frameCount));
+  
+  noStroke();
+  fill(#295FA6, 30);
+  rect(0,0, height, width);
+  
+  stroke(#F25041);
+  fill(#F2E5A0);
+  ellipse(width/2 + my_sin * 400, height/2 + my_cos * 400, 120, 120);
+  
+}
