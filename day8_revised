@@ -1,0 +1,71 @@
+// 100DaysOfCode - day 8
+
+// colors
+color BG = #161980;
+color FG = #e5e37c;
+int sizeOfCircle = 0;
+boolean firstClick = false; // if not clicked, firstClick is false
+
+
+void setup() {
+  size(1080, 1080);
+}
+
+void draw() {
+  sizeOfCircle += 3;
+  
+  if (mousePressed) {
+    background(0);
+    ellipse(mouseX, mouseY, 30, 30);
+  }
+  
+  else if (firstClick == true) {
+    background(FG);
+    stroke(firstClick ? BG : FG);
+
+  } else {
+    background(BG);
+    stroke(firstClick ? BG : FG);
+  }
+  if (frameCount % 90 == 0) {
+      firstClick = !firstClick;
+  }
+  
+  logo();
+ 
+  noFill();
+  strokeWeight(1);
+  ellipse(width/2, height/2, sizeOfCircle, sizeOfCircle);
+    
+  //saveFrame("day8_####.png");
+
+}
+  
+
+
+
+
+void logo() {
+  
+  if (firstClick) {
+  //  stroke color
+    stroke(BG);
+  } else {
+    stroke(FG);
+  }
+  // a bit fat stroke weight
+  strokeWeight(3);
+  // A
+  line(150, 100, 170, 50); // vertical
+  line(170, 50, 190, 100); // vertical
+  line(185, 75, 200, 75); // horisontal
+  // W
+  line(200, 50, 220, 100); // vertical
+  line(230, 100, 250, 50); // vertical
+  line(220, 75, 230, 100); // 
+  line(216, 50, 222, 65); // 
+}
+
+// save animation
+
+  
