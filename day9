@@ -1,0 +1,69 @@
+// farver
+color BG = #021024;
+color FG = #C1E8FF;
+
+// Variabler
+float amount, s;
+float radius = 320; // Ændr denne værdi for at justere radius af cirklen
+float angleIncrement;
+
+
+void setup() {
+  size(1080, 1080);
+  background(BG);
+  angleIncrement = PI / 90; // Opdel cirklen i 99 dele
+  logo(); // Flyt logoet til setup() funktionen
+}
+
+void draw() {
+  fill(FG);
+  noStroke();
+  rectMode(CENTER);
+
+  amount = 198;
+  s = 5;
+
+  translate(width / 2, height / 2);
+
+  for (int i = 0; i < amount; i++) {
+    float angle = i * angleIncrement;
+    float x = radius * cos(angle);
+    float y = radius * sin(angle);
+
+    push();
+    translate(x, y);
+    rotate(angle + HALF_PI);
+    if (i % 3 == 0 || i % 5 == 0) {
+      rect(0, 0, s, s * 8 * 2);
+    } 
+    if (i % 3 == 0 && i % 5 == 0) {
+      rect(0, 0, s * 2, s * 14 * 2);
+    } 
+    else {
+      ellipse(0, 0, s, s);
+    }
+    pop();
+  }
+  save("fizzBuzz.png");
+}
+
+void logo() {
+  stroke(255);
+  strokeWeight(3);
+
+  // A
+  line(50, 70, 70, 20);
+  line(70, 20, 90, 70);
+  line(85, 45, 100, 45);
+
+  // W
+  line(100, 20, 120, 70);
+  line(130, 70, 150, 20);
+  line(120, 45, 130, 70);
+  line(116, 20, 122, 35);
+
+  // DOT
+  fill(240, 138, 84);
+  noStroke();
+  ellipse(155, 62, 22, 22);
+}
