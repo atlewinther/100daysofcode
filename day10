@@ -1,0 +1,41 @@
+void setup() {
+  size(1080, 1080);
+  //noLoop();  // Stop animation
+}
+
+void draw() {
+  background(255);
+  float baseDiameter = 640;
+  int numCircles = 30;  // Ændre antallet af cirkler
+
+  randomSeed(42);  // Seed for tilfældige værdier, ændr værdien for forskellige resultater
+  
+  for (int i = 0; i < numCircles; i++) {
+    float diameter = baseDiameter * random(1.05, 1.15);  // Tilfældig diameter mellem 80% og 120% af baseDiameter
+    float noiseFactor = random(0.02, 0.05);  // Tilfældig støjfaktor
+    float rotation = random(0, 360);  // Tilfældig rotation
+    
+    float x = width/2 + random(-0.5, 0.5);  // Tilfældig x-position med begrænset spredning
+    float y = height/2 + random(-0.5, 0.5);  // Tilfældig y-position med begrænset spredning
+    
+    // Tegn cirkel
+    drawUnevenCircle(x, y, diameter, noiseFactor, rotation);
+  }
+}
+
+void drawUnevenCircle(float x, float y, float diameter, float noiseFactor, float rotation) {
+  beginShape();
+  noFill();
+  strokeWeight(1);
+  for (float angle = 0; angle < 360; angle += 0.5) {
+    float radian = radians(angle + rotation);
+    float radius = diameter / 2;
+    float xOffset = cos(radian) * radius;
+    float yOffset = sin(radian) * radius;
+    
+    float distortion = noise(xOffset * noiseFactor, yOffset * noiseFactor) * 5;
+    
+    vertex(x + xOffset + distortion, y + yOffset + distortion);
+  }
+  endShape(CLOSE);
+}
