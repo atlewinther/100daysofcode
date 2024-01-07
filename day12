@@ -1,0 +1,40 @@
+color BG = 255;
+color FG = #F0743E;
+color PRIM = #CDBCDB;
+color SEC = #AAD59E;
+
+void setup() {
+  background(BG);
+  size(1080, 1080);
+}
+
+void draw() {
+  noStroke();
+  rectMode(CENTER);
+  
+  // LARGE
+  push();
+    fill(FG);
+    translate(width/2, height/2);
+    rotate(radians(3));
+    rect(0, 0, 800, 800);
+   pop();
+   
+   // small 1
+   push();
+   fill(BG);
+     translate(width/2, height/2);
+     rotate(radians(3));
+     rect(0, 0, 300, 300);
+    pop();
+    
+    // small 2
+   push();
+     fill(#C13A00);
+     translate(width/2, height/2);
+     rotate(radians(-4));
+     rect(200, 190, 300, 300);
+   pop();
+  
+  //saveFrame("squarepuzzlev1.png");
+}
